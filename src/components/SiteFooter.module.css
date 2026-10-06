@@ -1,0 +1,56 @@
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 56px 0 36px;
+  margin-top: 40px;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: grid;
+  gap: 12px;
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tagline {
+  margin: 0;
+  color: var(--text-3);
+  font-size: 14px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  font-size: 14px;
+  color: var(--text-2);
+  align-content: flex-start;
+}
+
+.links a {
+  transition: color 160ms var(--ease);
+}
+
+.links a:hover {
+  color: var(--text);
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 48px;
+  font-size: 13px;
+  color: var(--text-3);
+}

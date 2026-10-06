@@ -1,0 +1,486 @@
+/* One 8-second loop drives everything after the entrance:
+   0–40% idle · 42% Reply pressed · 46% toast in · 50–62% first lead leaves and
+   the list moves up · 82% toast out · 92–100% the lead comes back for the next loop. */
+
+.stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 24px 0 8px;
+}
+
+.glow {
+  position: absolute;
+  inset: 8% 10% 0;
+  background: radial-gradient(closest-side, rgba(91, 141, 239, 0.22), transparent 75%);
+  filter: blur(40px);
+  z-index: 0;
+  animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.phone {
+  position: relative;
+  z-index: 1;
+  width: 320px;
+  max-width: 86vw;
+  aspect-ratio: 320 / 660;
+  padding: 10px;
+  border-radius: 52px;
+  background: linear-gradient(160deg, #2a2c30, #121315 40%, #0b0c0d);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 2px 6px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  animation: phoneIn 1100ms var(--ease) 200ms forwards;
+}
+
+@keyframes phoneIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.screen {
+  position: relative;
+  height: 100%;
+  border-radius: 43px;
+  background: #08090a;
+  overflow: hidden;
+  font-size: 12px;
+}
+
+/* ----- Status bar ---------------------------------------------------------- */
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 46px;
+  padding: 0 26px 0 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.island {
+  width: 92px;
+  height: 26px;
+  border-radius: 999px;
+  background: #000;
+}
+
+.statusIcons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.statusIcons i {
+  width: 4px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--text);
+}
+
+.statusIcons b {
+  width: 22px;
+  height: 11px;
+  border-radius: 3px;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset 12px 0 0 var(--text);
+}
+
+/* ----- Header ------------------------------------------------------------- */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 18px 6px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 27px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.subtitle {
+  position: relative;
+  height: 18px;
+  margin-top: 2px;
+  color: var(--text-2);
+  font-size: 12.5px;
+}
+
+.subtitle span {
+  position: absolute;
+  left: 0;
+  white-space: nowrap;
+}
+
+.countBefore {
+  animation: countBefore 8s var(--ease) 2.2s infinite;
+}
+
+.countAfter {
+  opacity: 0;
+  animation: countAfter 8s var(--ease) 2.2s infinite;
+}
+
+@keyframes countBefore {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  54%,
+  92% {
+    opacity: 0;
+  }
+  96%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes countAfter {
+  0%,
+  50% {
+    opacity: 0;
+  }
+  54%,
+  92% {
+    opacity: 1;
+  }
+  96%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.headerActions {
+  display: flex;
+  gap: 6px;
+}
+
+.round {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.me {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-2);
+  background: #1e2633;
+}
+
+.label {
+  padding: 14px 18px 4px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.label span {
+  margin-left: 4px;
+  color: var(--text-3);
+  font-weight: 500;
+}
+
+/* ----- Rows --------------------------------------------------------------- */
+
+.list {
+  position: relative;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  height: 68px;
+  padding: 0 14px 0 18px;
+  opacity: 0;
+  animation: rowIn 700ms var(--ease) forwards;
+  animation-delay: calc(700ms + var(--i) * 110ms);
+}
+
+@keyframes rowIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.first {
+  animation:
+    rowIn 700ms var(--ease) 700ms forwards,
+    leave 8s var(--ease) 2.2s infinite;
+}
+
+.rest {
+  animation:
+    rowIn 700ms var(--ease) calc(700ms + var(--i) * 110ms) forwards,
+    moveUp 8s var(--ease) 2.2s infinite;
+}
+
+@keyframes leave {
+  0%,
+  48% {
+    opacity: 1;
+    transform: none;
+  }
+  56%,
+  92% {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  98%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes moveUp {
+  0%,
+  52% {
+    opacity: 1;
+    transform: none;
+  }
+  62%,
+  92% {
+    opacity: 1;
+    transform: translateY(-68px);
+  }
+  98%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.body {
+  display: grid;
+  gap: 1px;
+  min-width: 0;
+}
+
+.name {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.context {
+  color: var(--text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.next {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--accent);
+  font-weight: 550;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.next i {
+  width: 5px;
+  height: 5px;
+  border-radius: 99px;
+  background: currentColor;
+  flex: none;
+}
+
+.next em {
+  font-style: normal;
+  font-weight: 400;
+  color: var(--text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.button {
+  height: 26px;
+  padding: 0 11px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.press {
+  animation: press 8s var(--ease) 2.2s infinite;
+}
+
+@keyframes press {
+  0%,
+  40% {
+    transform: none;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+  42% {
+    transform: scale(0.88);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.12);
+  }
+  46%,
+  100% {
+    transform: none;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+/* ----- Toast -------------------------------------------------------------- */
+
+.toast {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 30px;
+  padding: 0 14px 0 8px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #fff;
+  background: #000;
+  /* Grows out of the Dynamic Island, the way iOS shows live updates. */
+  transform: translateX(-50%) scale(0.4, 0.86);
+  opacity: 0;
+  animation: toast 8s var(--spring) 2.2s infinite;
+}
+
+.toastCheck {
+  width: 16px;
+  height: 16px;
+  border-radius: 99px;
+  display: grid;
+  place-items: center;
+  font-size: 10px;
+  color: #08090a;
+  background: var(--success);
+}
+
+@keyframes toast {
+  0%,
+  44% {
+    transform: translateX(-50%) scale(0.4, 0.86);
+    opacity: 0;
+  }
+  48%,
+  80% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  86%,
+  100% {
+    transform: translateX(-50%) scale(0.4, 0.86);
+    opacity: 0;
+  }
+}
+
+/* ----- Tab bar ------------------------------------------------------------ */
+
+.tabbar {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 18px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tabs,
+.add {
+  background: rgba(30, 32, 36, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.tabs {
+  flex: 1;
+  display: flex;
+  height: 54px;
+  padding: 4px;
+  border-radius: 999px;
+}
+
+.tab {
+  flex: 1;
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 1px;
+  font-size: 9.5px;
+  font-weight: 550;
+  color: var(--text-2);
+  border-radius: 999px;
+}
+
+.tabActive {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.add {
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: var(--text);
+}

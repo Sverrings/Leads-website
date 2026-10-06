@@ -1,0 +1,160 @@
+.page {
+  padding-top: clamp(40px, 8vw, 88px);
+  padding-bottom: clamp(48px, 8vw, 96px);
+}
+
+.head {
+  display: grid;
+  gap: 16px;
+  max-width: 720px;
+  margin-bottom: 48px;
+}
+
+.narrow {
+  max-width: 780px;
+}
+
+.inlineLink {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 160ms var(--ease);
+}
+
+.inlineLink:hover {
+  text-decoration-color: var(--text);
+}
+
+/* ----- Legal documents ------------------------------------------------------ */
+
+.layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.toc {
+  position: sticky;
+  top: 96px;
+  display: grid;
+  gap: 2px;
+  font-size: 13px;
+}
+
+.toc span {
+  margin-bottom: 8px;
+  color: var(--text-3);
+  font-weight: 550;
+}
+
+.toc a {
+  padding: 4px 0;
+  color: var(--text-2);
+  transition: color 160ms var(--ease);
+}
+
+.toc a:hover {
+  color: var(--text);
+}
+
+.summary {
+  margin: 0 0 40px;
+  padding: 20px 22px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.summary h2 {
+  margin: 0 0 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.summary ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--text-2);
+}
+
+.summary li {
+  margin: 4px 0;
+}
+
+.doc {
+  max-width: 720px;
+  color: var(--text-2);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.doc section {
+  scroll-margin-top: 96px;
+  padding-bottom: 12px;
+}
+
+.doc h2 {
+  margin: 36px 0 12px;
+  color: var(--text);
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+.doc h3 {
+  margin: 20px 0 6px;
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.doc p,
+.doc ul {
+  margin: 0 0 14px;
+}
+
+.doc ul {
+  padding-left: 20px;
+}
+
+.doc li {
+  margin: 6px 0;
+}
+
+.doc strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.doc a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+  text-underline-offset: 3px;
+}
+
+.updated {
+  font-size: 14px;
+  color: var(--text-3);
+}
+
+.setup {
+  margin-bottom: 32px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px dashed rgba(233, 180, 76, 0.5);
+  color: var(--warning);
+  font-size: 14px;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .toc {
+    display: none;
+  }
+}

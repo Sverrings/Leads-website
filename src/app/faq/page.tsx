@@ -7,25 +7,21 @@ import { site } from '@/site.config';
 import styles from '../legal.module.css';
 
 export const metadata: Metadata = {
-  title: 'Questions and answers',
+  title: 'Questions',
   description: 'How Leads works, what it does with your email and data, and how to delete your account.',
 };
 
 export default function FaqPage() {
   return (
     <div className={`container ${styles.page}`}>
-      <header className={`${styles.head} rise`}>
-        <span className="eyebrow">FAQ</span>
-        <h1 className="h2">Questions and answers</h1>
-        <p className="lead">
-          Something missing? Email{' '}
-          <a className={styles.inlineLink} href={`mailto:${site.contactEmail}`}>
-            {site.contactEmail}
-          </a>
-          .
+      <header className={styles.head}>
+        <h1 className="title">Questions</h1>
+        <p className="intro">
+          If yours isn&apos;t here, email <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>{' '}
+          and you&apos;ll get an answer from a person.
         </p>
       </header>
-      <div className={`${styles.narrow} rise`} style={{ ['--i' as string]: 1 }}>
+      <div className={styles.narrow}>
         <FaqList items={FAQS} />
       </div>
     </div>

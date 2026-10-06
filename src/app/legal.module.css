@@ -1,82 +1,66 @@
 .page {
-  padding-top: clamp(40px, 8vw, 88px);
-  padding-bottom: clamp(48px, 8vw, 96px);
+  padding-top: clamp(40px, 7vw, 80px);
 }
 
 .head {
   display: grid;
   gap: 16px;
-  max-width: 720px;
-  margin-bottom: 48px;
+  max-width: 680px;
+  margin-bottom: 40px;
 }
 
 .narrow {
-  max-width: 780px;
-}
-
-.inlineLink {
-  color: var(--text);
-  text-decoration: underline;
-  text-decoration-color: rgba(255, 255, 255, 0.3);
-  text-underline-offset: 3px;
-  transition: text-decoration-color 160ms var(--ease);
-}
-
-.inlineLink:hover {
-  text-decoration-color: var(--text);
+  max-width: 720px;
 }
 
 /* ----- Legal documents ------------------------------------------------------ */
 
 .layout {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 64px;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 56px;
   align-items: start;
 }
 
 .toc {
   position: sticky;
-  top: 96px;
+  top: 32px;
   display: grid;
   gap: 2px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .toc span {
   margin-bottom: 8px;
-  color: var(--text-3);
-  font-weight: 550;
+  color: var(--ink-3);
 }
 
 .toc a {
-  padding: 4px 0;
-  color: var(--text-2);
-  transition: color 160ms var(--ease);
+  padding: 3px 0;
+  color: var(--ink-2);
+  text-decoration: none;
 }
 
 .toc a:hover {
-  color: var(--text);
+  color: var(--ink);
 }
 
 .summary {
-  margin: 0 0 40px;
-  padding: 20px 22px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  background: var(--surface);
+  margin: 0 0 36px;
+  padding: 18px 20px;
+  border-left: 3px solid var(--ink);
+  background: var(--paper-2);
 }
 
 .summary h2 {
-  margin: 0 0 10px;
-  font-size: 15px;
+  margin: 0 0 8px;
+  font-size: 16px;
   font-weight: 600;
 }
 
 .summary ul {
   margin: 0;
   padding-left: 18px;
-  color: var(--text-2);
 }
 
 .summary li {
@@ -84,35 +68,34 @@
 }
 
 .doc {
-  max-width: 720px;
-  color: var(--text-2);
-  font-size: 16px;
+  max-width: 680px;
+  font-size: 17px;
   line-height: 1.7;
 }
 
 .doc section {
-  scroll-margin-top: 96px;
-  padding-bottom: 12px;
+  scroll-margin-top: 32px;
+  padding-bottom: 8px;
 }
 
 .doc h2 {
-  margin: 36px 0 12px;
-  color: var(--text);
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  margin: 36px 0 10px;
+  font-family: var(--serif), Georgia, serif;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.25;
 }
 
 .doc h3 {
   margin: 20px 0 6px;
-  color: var(--text);
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
 }
 
 .doc p,
 .doc ul {
   margin: 0 0 14px;
+  color: var(--ink-2);
 }
 
 .doc ul {
@@ -124,36 +107,29 @@
 }
 
 .doc strong {
-  color: var(--text);
+  color: var(--ink);
   font-weight: 600;
 }
 
-.doc a {
-  color: var(--text);
-  text-decoration: underline;
-  text-decoration-color: rgba(255, 255, 255, 0.3);
-  text-underline-offset: 3px;
-}
-
 .updated {
-  font-size: 14px;
-  color: var(--text-3);
+  font-size: 15px;
+  color: var(--ink-3);
 }
 
 .setup {
   margin-bottom: 32px;
-  padding: 14px 16px;
-  border-radius: var(--radius);
-  border: 1px dashed rgba(233, 180, 76, 0.5);
-  color: var(--warning);
-  font-size: 14px;
+  padding: 12px 14px;
+  border: 1px dashed var(--danger);
+  color: var(--danger);
+  font-size: 15px;
 }
 
 @media (max-width: 860px) {
   .layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
   }
+
   .toc {
     display: none;
   }

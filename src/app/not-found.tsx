@@ -5,13 +5,12 @@ import styles from './legal.module.css';
 export default function NotFound() {
   return (
     <div className={`container ${styles.page}`}>
-      <header className={`${styles.head} rise`}>
-        <span className="eyebrow">404</span>
-        <h1 className="h2">This page does not exist.</h1>
-        <p className="lead">The link may be old, or it was never here.</p>
-        <Link href="/" className="btn btn-primary" style={{ width: 'fit-content' }}>
-          Back to the start
-        </Link>
+      <header className={styles.head}>
+        <h1 className="title">There&apos;s no page here.</h1>
+        <p className="intro">
+          The link may be old or mistyped. The <Link href="/">front page</Link> is a good place to
+          start again.
+        </p>
       </header>
     </div>
   );

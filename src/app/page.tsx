@@ -1,181 +1,130 @@
 import Link from 'next/link';
 
+import { EmailPreview } from '@/components/EmailPreview';
 import { FaqList } from '@/components/FaqList';
 import { PhoneMock } from '@/components/PhoneMock';
 import { FAQS } from '@/content/faq';
-import { site } from '@/site.config';
 
 import styles from './page.module.css';
 
-const STEPS = [
+const WEEK = [
   {
-    title: 'Add who asked',
-    body: 'A name is enough. Paste their message so you remember what they wanted.',
-    visual: 'add',
+    when: 'Monday 09:12',
+    what: (
+      <>
+        Sarah Mitchell emails to ask what a new bathroom would cost. You add her to Leads with her
+        name and a few words about the job.
+      </>
+    ),
   },
   {
-    title: 'Do what the button says',
-    body: 'Follow-ups are lined up for day 1, 3 and 7 and drafted for you. Read, tap Send.',
-    visual: 'schedule',
+    when: 'Tuesday 09:12',
+    what: (
+      <>
+        Sarah is at the top of your list with a follow-up already written. You change one line and
+        tap Send. It goes out with your name on it.
+      </>
+    ),
   },
   {
-    title: 'Stop when they answer',
-    body: 'Tap “They replied” and the rest are cancelled. No awkward double messages.',
-    visual: 'reply',
+    when: 'Friday 09:15',
+    what: <>Still no answer. A second, shorter follow-up is ready for you to look at.</>,
   },
-] as const;
-
-const CALM = [
-  { title: 'One list', body: 'Sorted by who needs you, not by when you added them.' },
-  { title: 'Plain words', body: 'Reply, Follow up, Won, Lost. No pipeline stages to learn.' },
-  { title: 'Your OK first', body: 'Nothing reaches a customer until you send it, unless you ask.' },
-  { title: 'Made for teams', body: 'Invite a colleague with a code and share the same leads.' },
+  {
+    when: 'Friday 14:40',
+    what: (
+      <>
+        Sarah replies to ask if you can come by on Monday. Her answer lands in your normal inbox.
+        You tap <q>They replied</q> in Leads and the last reminder is cancelled.
+      </>
+    ),
+  },
 ];
 
-function StepVisual({ kind }: { kind: (typeof STEPS)[number]['visual'] }) {
-  if (kind === 'add') {
-    return (
-      <div className={styles.vAdd} aria-hidden="true">
-        <span className={styles.vLabel}>Name</span>
-        <span className={styles.vInput}>
-          <span className={styles.vTyped}>Sarah Mitchell</span>
-          <span className={styles.vCaret} />
-        </span>
-        <span className={styles.vLabel}>What did they ask about?</span>
-        <span className={`${styles.vInput} ${styles.vMuted}`}>New bathroom, wants a quote</span>
-      </div>
-    );
-  }
-  if (kind === 'schedule') {
-    return (
-      <div className={styles.vSchedule} aria-hidden="true">
-        {[
-          ['Day 1', 'Sent', styles.vDone],
-          ['Day 3', 'Draft ready', styles.vNow],
-          ['Day 7', 'Scheduled', ''],
-        ].map(([day, state, tone]) => (
-          <span key={day} className={`${styles.vStep} ${tone}`}>
-            <i />
-            <b>{day}</b>
-            {state}
-          </span>
-        ))}
-      </div>
-    );
-  }
-  return (
-    <div className={styles.vReply} aria-hidden="true">
-      <span className={styles.vBadge}>
-        <span className={styles.vBadgeWaiting}>Waiting</span>
-        <span className={styles.vBadgeReplied}>Replied</span>
-      </span>
-      <span className={styles.vStrike}>Day 3 follow-up</span>
-      <span className={styles.vStrike}>Day 7 follow-up</span>
-    </div>
-  );
-}
+const PREVIEW_FAQS = ['auto-send', 'gmail', 'data'];
 
 export default function HomePage() {
   return (
     <>
-      <section className={styles.hero}>
-        <div className={styles.heroLight} aria-hidden="true" />
-        <div className={`container ${styles.heroGrid}`}>
-          <div className={styles.heroCopy}>
-            <span className="eyebrow rise" style={{ ['--i' as string]: 0 }}>
-              Follow-ups for small businesses
-            </span>
-            <h1 className="h1 rise" style={{ ['--i' as string]: 1 }}>
-              {site.tagline}
-            </h1>
-            <p className="lead rise" style={{ ['--i' as string]: 2 }}>
-              {site.description}
-            </p>
-            <div className={`${styles.actions} rise`} style={{ ['--i' as string]: 3 }}>
-              <span className="pill">
-                <span className="live-dot" aria-hidden="true" />
-                Coming soon to iPhone
-              </span>
-              <Link href="/faq" className="btn btn-ghost">
-                Read the FAQ
-              </Link>
-            </div>
-          </div>
+      <section className={`container ${styles.hero}`}>
+        <div className={styles.heroText}>
+          <h1 className="display">Follow up with everyone who asks for a quote.</h1>
+          <p className="intro">
+            Leads is an iPhone app for small businesses. Add the person who asked, and Leads lines
+            up three follow-ups and writes them for you. You read them and tap Send. When they
+            answer, it stops.
+          </p>
+          <p className={styles.status}>
+            Coming to the App Store soon. <Link href="#week">See how it works</Link>
+          </p>
+        </div>
+        <div className={styles.heroFigure}>
           <PhoneMock />
         </div>
       </section>
 
-      <section id="how" className="section">
-        <div className="container">
-          <div className={`${styles.sectionHead} reveal`}>
-            <span className="eyebrow">How it works</span>
-            <h2 className="h2">Three steps. That is the whole app.</h2>
-          </div>
-          <div className={styles.steps}>
-            {STEPS.map((step, index) => (
-              <article
-                key={step.title}
-                className={`card reveal ${styles.step}`}
-                style={{ ['--delay' as string]: `${index * 90}ms` }}>
-                <StepVisual kind={step.visual} />
-                <div className={styles.stepCopy}>
-                  <span className={styles.stepNumber}>{index + 1}</span>
-                  <h3 className="h3">{step.title}</h3>
-                  <p className="muted">{step.body}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+      <section id="week" className={`container ${styles.section}`}>
+        <h2 className="title">A week with one lead</h2>
+        <ol className={styles.week}>
+          {WEEK.map((entry) => (
+            <li key={entry.when} className={styles.day}>
+              <time className={styles.when}>{entry.when}</time>
+              <p className={styles.what}>{entry.what}</p>
+            </li>
+          ))}
+        </ol>
+        <p className={`small ${styles.note}`}>
+          The reminders come on day 1, 3 and 7 after you add someone. You can change the days, or
+          turn a lead&apos;s reminders off, whenever you like.
+        </p>
+      </section>
+
+      <section className={`container ${styles.section} ${styles.split}`}>
+        <div className="read">
+          <h2 className="title">What Sarah receives</h2>
+          <p className={styles.body}>
+            This is the first follow-up Leads writes. It is short on purpose, because a short
+            email gets read. You can rewrite every message in the app, and replies go to your own
+            email address, not to us.
+          </p>
+        </div>
+        <EmailPreview />
+      </section>
+
+      <section className={`container ${styles.section}`}>
+        <div className="read">
+          <h2 className="title">What it doesn&apos;t do</h2>
+          <p className={styles.body}>
+            Leads never connects to your inbox, so it can&apos;t read your email. When someone
+            writes back, you tell it with one tap. Nothing goes out to a customer until you press
+            Send, unless you switch on automatic sending yourself. There are no pipelines, deal
+            stages or reports to learn. And the people in your list are yours: we don&apos;t sell
+            or share them, and you can delete everything from the app. The{' '}
+            <Link href="/privacy">privacy policy</Link> says exactly what is stored.
+          </p>
         </div>
       </section>
 
-      <section className={`section ${styles.calmSection}`}>
-        <div className="container">
-          <div className={`${styles.sectionHead} reveal`}>
-            <span className="eyebrow">Calm by design</span>
-            <h2 className="h2">Done in a minute, not managed all day.</h2>
-            <p className="lead">
-              Most tools for leads want to become your whole job. Leads stays out of the way until
-              someone needs you, then tells you exactly what to do.
-            </p>
-          </div>
-          <div className={styles.calm}>
-            {CALM.map((item, index) => (
-              <div
-                key={item.title}
-                className={`reveal ${styles.calmItem}`}
-                style={{ ['--delay' as string]: `${index * 70}ms` }}>
-                <h3 className="h3">{item.title}</h3>
-                <p className="muted">{item.body}</p>
-              </div>
-            ))}
-          </div>
+      <section className={`container ${styles.section}`}>
+        <div className="read">
+          <h2 className="title">Who it&apos;s for</h2>
+          <p className={styles.body}>
+            People who quote before they get the job: electricians, painters, roofers, cleaners,
+            photographers, physiotherapists, small agencies. If a busy week has ever cost you a
+            customer because nobody followed up, Leads is for you.
+          </p>
         </div>
       </section>
 
-      <section className="section">
-        <div className={`container ${styles.faqGrid}`}>
-          <div className={`${styles.sectionHead} reveal`}>
-            <span className="eyebrow">Questions</span>
-            <h2 className="h2">The short answers.</h2>
-            <Link href="/faq" className={styles.textLink}>
-              All questions →
-            </Link>
+      <section className={`container ${styles.section}`}>
+        <div className="read">
+          <h2 className="title">Questions people ask</h2>
+          <div className={styles.faq}>
+            <FaqList items={FAQS.filter((item) => PREVIEW_FAQS.includes(item.id))} />
           </div>
-          <div className="reveal">
-            <FaqList items={FAQS.filter((faq) => ['auto-send', 'gmail', 'data'].includes(faq.id))} />
-          </div>
-        </div>
-      </section>
-
-      <section className={styles.final}>
-        <div className={`container ${styles.finalInner} reveal`}>
-          <h2 className="h2">Your next customer already asked.</h2>
-          <p className="lead">Leads makes sure you answer.</p>
-          <span className="pill">
-            <span className="live-dot" aria-hidden="true" />
-            Coming soon to iPhone
-          </span>
+          <p className="small">
+            <Link href="/faq">All questions</Link>
+          </p>
         </div>
       </section>
     </>

@@ -1,34 +1,20 @@
-/* One 8-second loop drives everything after the entrance:
+/* One 8-second loop drives everything:
    0–40% idle · 42% Reply pressed · 46% toast in · 50–62% first lead leaves and
    the list moves up · 82% toast out · 92–100% the lead comes back for the next loop. */
 
 .stage {
-  position: relative;
   display: grid;
   place-items: center;
-  padding: 24px 0 8px;
-}
-
-.glow {
-  position: absolute;
-  inset: 8% 10% 0;
-  background: radial-gradient(closest-side, rgba(91, 141, 239, 0.22), transparent 75%);
-  filter: blur(40px);
-  z-index: 0;
-  animation: breathe 8s ease-in-out infinite;
-}
-
-@keyframes breathe {
-  0%,
-  100% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 1;
-  }
 }
 
 .phone {
+  /* The phone shows the app, which is dark, whatever the page's theme. */
+  --bg: #08090a;
+  --text: #f2f2f3;
+  --text-2: #a3a5aa;
+  --text-3: #6c6e73;
+  --accent: #5b8def;
+  color: var(--text);
   position: relative;
   z-index: 1;
   width: 320px;
@@ -38,22 +24,9 @@
   border-radius: 52px;
   background: linear-gradient(160deg, #2a2c30, #121315 40%, #0b0c0d);
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 30px 80px rgba(0, 0, 0, 0.55),
-    0 2px 6px rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  animation: phoneIn 1100ms var(--ease) 200ms forwards;
-}
-
-@keyframes phoneIn {
-  from {
-    opacity: 0;
-    transform: translateY(28px) scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+    0 0 0 1px rgba(0, 0, 0, 0.12),
+    0 16px 40px rgba(0, 0, 0, 0.16),
+    0 2px 4px rgba(0, 0, 0, 0.12);
 }
 
 .screen {
@@ -223,32 +196,14 @@
   gap: 10px;
   height: 68px;
   padding: 0 14px 0 18px;
-  opacity: 0;
-  animation: rowIn 700ms var(--ease) forwards;
-  animation-delay: calc(700ms + var(--i) * 110ms);
-}
-
-@keyframes rowIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
 }
 
 .first {
-  animation:
-    rowIn 700ms var(--ease) 700ms forwards,
-    leave 8s var(--ease) 2.2s infinite;
+  animation: leave 8s var(--ease) 2.2s infinite;
 }
 
 .rest {
-  animation:
-    rowIn 700ms var(--ease) calc(700ms + var(--i) * 110ms) forwards,
-    moveUp 8s var(--ease) 2.2s infinite;
+  animation: moveUp 8s var(--ease) 2.2s infinite;
 }
 
 @keyframes leave {

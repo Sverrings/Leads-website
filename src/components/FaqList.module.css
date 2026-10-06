@@ -1,54 +1,40 @@
 .list {
-  border-top: 1px solid var(--border);
-  interpolate-size: allow-keywords;
+  border-top: 1px solid var(--rule);
 }
 
 .item {
-  border-bottom: 1px solid var(--border);
-}
-
-.item::details-content {
-  block-size: 0;
-  overflow: clip;
-  opacity: 0;
-  transition:
-    block-size 320ms var(--ease),
-    opacity 240ms var(--ease),
-    content-visibility 320ms allow-discrete;
-}
-
-.item[open]::details-content {
-  block-size: auto;
-  opacity: 1;
+  border-bottom: 1px solid var(--rule);
 }
 
 .question {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   gap: 24px;
-  padding: 22px 0;
+  padding: 18px 0;
   cursor: pointer;
   list-style: none;
-  font-size: 17px;
-  font-weight: 550;
-  letter-spacing: -0.01em;
-  transition: color 160ms var(--ease);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .question::-webkit-details-marker {
   display: none;
 }
 
-.question:hover {
-  color: #fff;
+.question:hover span:first-child {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--ink-3);
 }
 
+/* A plain plus that turns into a minus. */
 .icon {
   position: relative;
   flex: none;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
 }
 
 .icon::before,
@@ -56,12 +42,10 @@
   content: '';
   position: absolute;
   left: 0;
-  top: 6px;
-  width: 14px;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--text-2);
-  transition: transform 260ms var(--ease);
+  top: 5px;
+  width: 12px;
+  height: 1.5px;
+  background: var(--ink-2);
 }
 
 .icon::after {
@@ -69,18 +53,18 @@
 }
 
 .item[open] .icon::after {
-  transform: rotate(0deg);
+  display: none;
 }
 
 .answer {
-  padding: 0 40px 22px 0;
-  color: var(--text-2);
-  font-size: 16px;
+  padding: 0 32px 20px 0;
+  color: var(--ink-2);
+  font-size: 17px;
 }
 
 .answer p {
   margin: 0 0 12px;
-  max-width: 68ch;
+  max-width: 64ch;
 }
 
 .answer p:last-child {

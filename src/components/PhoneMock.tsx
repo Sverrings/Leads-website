@@ -46,7 +46,6 @@ const ROWS = [
 export function PhoneMock() {
   return (
     <div className={styles.stage} aria-hidden="true">
-      <div className={styles.glow} />
       <div className={styles.phone}>
         <div className={styles.screen}>
           <div className={styles.status}>

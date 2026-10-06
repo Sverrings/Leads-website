@@ -11,13 +11,11 @@ export type LegalSection = { id: string; title: string; body: ReactNode };
  * full text with a table of contents that stays in view on wide screens.
  */
 export function LegalDocument({
-  eyebrow,
   title,
   intro,
   summary,
   sections,
 }: {
-  eyebrow: string;
   title: string;
   intro: ReactNode;
   summary: string[];
@@ -25,10 +23,9 @@ export function LegalDocument({
 }) {
   return (
     <div className={`container ${styles.page}`}>
-      <header className={`${styles.head} rise`}>
-        <span className="eyebrow">{eyebrow}</span>
-        <h1 className="h2">{title}</h1>
-        <p className="lead">{intro}</p>
+      <header className={styles.head}>
+        <h1 className="title">{title}</h1>
+        <p className="intro">{intro}</p>
         <p className={styles.updated}>Last updated {site.legalUpdated}</p>
       </header>
 

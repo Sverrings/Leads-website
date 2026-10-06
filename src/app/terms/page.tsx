@@ -181,7 +181,6 @@ const SECTIONS: LegalSection[] = [
 export default function TermsPage() {
   return (
     <LegalDocument
-      eyebrow="Terms"
       title="Terms of Service"
       intro="The agreement between you and Leads, in plain language."
       summary={[

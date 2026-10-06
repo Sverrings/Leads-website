@@ -1,19 +1,16 @@
 import Link from 'next/link';
 
 import { LogoMark, Wordmark } from './Logo';
-import { ScrollState } from './ScrollState';
 import styles from './SiteHeader.module.css';
 
 const LINKS = [
-  { href: '/#how', label: 'How it works' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/privacy', label: 'Privacy' },
+  { href: '/#week', label: 'How it works' },
+  { href: '/faq', label: 'Questions' },
 ];
 
 export function SiteHeader() {
   return (
-    <header className={styles.header} data-header>
-      <ScrollState />
+    <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
         <Link href="/" className={styles.brand} aria-label="Leads home">
           <LogoMark size={26} />

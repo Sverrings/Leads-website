@@ -141,6 +141,12 @@ const SECTIONS: LegalSection[] = [
           <li>
             <strong>Vercel</strong>: hosts this website.
           </li>
+          <li>
+            <strong>Have I Been Pwned</strong>: when you choose a password, the app checks whether
+            it has appeared in a known data breach. Only the first five characters of a one-way
+            hash of the password are sent, which is not enough to work out the password, and
+            nothing about you is included.
+          </li>
         </ul>
         <p>
           Some of these companies are based in the United States. Where data leaves the EEA, the
@@ -199,12 +205,24 @@ const SECTIONS: LegalSection[] = [
     id: 'security',
     title: 'Security',
     body: (
-      <p>
-        Data is encrypted in transit and at rest. Each workspace is separated by the database itself,
-        so one business can never see another’s leads. Keys for email and drafting live only on our
-        servers, never in the app. No system is perfectly secure, but we will tell you without delay
-        if a breach affects your data.
-      </p>
+      <>
+        <p>
+          Data is encrypted in transit and at rest. Each workspace is separated by the database
+          itself, so one business can never see another’s leads. Keys for email and drafting live
+          only on our servers, never in the app.
+        </p>
+        <p>
+          On your phone, your sign-in and the copy of your leads the app keeps for offline use are
+          encrypted with a key held in the iPhone’s Keychain, which never leaves that device. Email
+          addresses are confirmed with a one-time code, changing your password after a while needs
+          a fresh code, and resetting it signs you out everywhere else. You get an email when your
+          password changes or a new way to sign in is added.
+        </p>
+        <p>
+          No system is perfectly secure, but we will tell you without delay if a breach affects
+          your data.
+        </p>
+      </>
     ),
   },
   {
@@ -227,7 +245,6 @@ const SECTIONS: LegalSection[] = [
 export default function PrivacyPage() {
   return (
     <LegalDocument
-      eyebrow="Privacy"
       title="Privacy Policy"
       intro="What we collect, why, who helps us, and how to delete it. Written to be read."
       summary={[

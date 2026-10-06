@@ -4,18 +4,17 @@
  */
 export const site = {
   name: 'Leads',
-  tagline: 'Never let a lead go cold.',
   description:
-    'Leads keeps everyone who asked about a job in one list, tells you who to follow up with today, and drafts the message. When they reply, it stops.',
-  /** The address the site will live at. Update when you connect a domain. */
-  url: 'https://leads-website.vercel.app',
+    'Leads is an iPhone app that reminds small businesses to follow up with everyone who asks for a quote, and writes the follow-up for them.',
+  /** The address the site lives at. Update when you connect your own domain. */
+  url: 'https://leads-website-nine.vercel.app',
 
   // TODO: the person or company responsible for the app (the "data controller").
   operator: 'The Leads team',
   // TODO: an inbox you read. Privacy requests and support questions go here.
   contactEmail: 'hello@your-domain.com',
-  // TODO: check where your Supabase project stores data (Project settings → General → Region).
-  dataRegion: 'the European Union',
+  /** Where the Supabase project keeps data. */
+  dataRegion: 'Frankfurt, Germany (EU)',
 
   /** Law that governs the terms, and the data protection authority people can complain to. */
   country: 'Norway',
@@ -23,6 +22,20 @@ export const site = {
 
   /** Shown on the legal pages. Change it whenever you change them. */
   legalUpdated: '6 October 2026',
+
+  /**
+   * The app's backend, used by the pages that email links open (confirm email,
+   * reset password). The publishable key is meant to be public: every request
+   * it makes is limited by the database's row-level security.
+   */
+  supabase: {
+    // Point at a local stack in development with NEXT_PUBLIC_SUPABASE_URL/_PUBLISHABLE_KEY.
+    url: process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://tylshwfarhekknpjnhcb.supabase.co',
+    publishableKey:
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || 'sb_publishable_FlBa5_UL6kQHAH-GvNQthw_c_el5W70',
+  },
+  /** Opens the app. Expo Go links are accepted too, for testing. */
+  appUrl: 'leads://',
 } as const;
 
 export const needsSetup = site.contactEmail.includes('your-domain');

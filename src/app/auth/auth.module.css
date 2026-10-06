@@ -1,0 +1,58 @@
+.page {
+  padding-top: clamp(40px, 8vw, 88px);
+}
+
+.panel {
+  display: grid;
+  gap: 20px;
+  max-width: 440px;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+.password {
+  position: relative;
+}
+
+.password input {
+  padding-right: 64px;
+}
+
+.reveal {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  height: 36px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-2);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.reveal:hover {
+  color: var(--ink);
+}
+
+.error {
+  color: var(--danger);
+  font-size: 15px;
+}
+
+.done {
+  color: var(--ok);
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}

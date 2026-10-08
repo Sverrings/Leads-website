@@ -21,7 +21,15 @@ export const site = {
   supervisoryAuthority: { name: 'Datatilsynet', url: 'https://www.datatilsynet.no' },
 
   /** Shown on the legal pages. Change it whenever you change them. */
-  legalUpdated: '8 October 2026',
+  legalUpdated: '9 October 2026',
+
+  /**
+   * Leads Pro, as set up in App Store Connect and the app's database
+   * (private.app_settings). Keep these in sync when either changes.
+   */
+  freeActiveLeads: 3,
+  trialDays: 14,
+  proPrices: '99 kr a month or 990 kr a year in Norway, or $9.99 a month or $99.99 a year in the United States',
 
   /**
    * The app's backend, used by the pages that email links open (confirm email,

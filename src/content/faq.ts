@@ -50,6 +50,22 @@ export const FAQS: Faq[] = [
     ],
   },
   {
+    id: 'price',
+    question: 'What does it cost?',
+    answer: [
+      'Each workspace can have 3 active leads at a time for free. Leads marked Won or Lost do not count.',
+      'Leads Pro removes the limit for everyone in the workspace: 99 kr a month or 990 kr a year in Norway, shown in your own currency in the app. New subscribers get 14 days free through Apple, and the app reminds you 2 days before the trial ends. Cancel any time under Settings → Leads Pro.',
+      'If Pro ends, nothing is deleted. Every lead stays; you just cannot add more than 3 active ones until some are marked Won or Lost.',
+    ],
+  },
+  {
+    id: 'notifications',
+    question: 'Will it send me notifications?',
+    answer: [
+      'If you turn them on. Leads tells you when a follow-up is due, between 07:00 and 21:00 your time. A notification says who to follow up with, never what your messages say.',
+    ],
+  },
+  {
     id: 'accounts',
     question: 'I signed in with Apple once and Google another time. Do I have two accounts?',
     answer: [

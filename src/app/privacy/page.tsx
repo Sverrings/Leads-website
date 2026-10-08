@@ -56,6 +56,21 @@ const SECTIONS: LegalSection[] = [
           <li>The follow-ups you write or send, your templates and your follow-up settings.</li>
           <li>Your workspace name and the teammates you invite.</li>
         </ul>
+        <h3>If you subscribe to Leads Pro</h3>
+        <ul>
+          <li>
+            Apple handles the payment. We never see your card or bank details. From Apple we get
+            the subscription’s transaction number, which plan it is, its start, renewal and end
+            dates, and whether it will renew, so the app knows your workspace has Pro.
+          </li>
+        </ul>
+        <h3>If you turn on push notifications</h3>
+        <ul>
+          <li>
+            A push token for your phone, which lets us send it notifications. It is deleted when
+            you log out, turn push off, or delete your account.
+          </li>
+        </ul>
         <h3>Technical information</h3>
         <ul>
           <li>
@@ -134,7 +149,13 @@ const SECTIONS: LegalSection[] = [
             <strong>Apple</strong> and <strong>Google</strong>: only if you choose them to sign in.
           </li>
           <li>
-            <strong>Expo</strong>: delivers app updates to your phone.
+            <strong>Apple</strong>: takes payment for Leads Pro and tells us the state of your
+            subscription.
+          </li>
+          <li>
+            <strong>Expo</strong>: delivers app updates and push notifications to your phone (push
+            notifications go on through Apple or Google). A notification contains its title, such
+            as “Follow up with Sarah”, and never the text of your messages.
           </li>
           <li>
             <strong>Vercel</strong>: hosts this website.

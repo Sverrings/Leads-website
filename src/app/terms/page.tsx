@@ -114,12 +114,50 @@ const SECTIONS: LegalSection[] = [
   },
   {
     id: 'price',
-    title: 'Price',
+    title: 'Plans and payment',
     body: (
-      <p>
-        Leads is currently free to use. If we introduce paid plans, we will tell you in advance, and
-        you will never be charged without agreeing to it first.
-      </p>
+      <>
+        <p>
+          <strong>Free.</strong> Each workspace can have {site.freeActiveLeads} active leads at a
+          time without paying. Leads marked Won or Lost do not count, and there is no limit on them.
+        </p>
+        <p>
+          <strong>Leads Pro</strong> removes that limit for everyone in the workspace. It is a
+          subscription you buy in the app through Apple, monthly or yearly. The price is shown in
+          your currency before you confirm, for example {site.proPrices}.
+        </p>
+        <ul>
+          <li>
+            <strong>Free trial.</strong> New subscribers can get a {site.trialDays}-day free trial,
+            once per Apple ID. Apple decides who can have one. If you do not cancel at least 24
+            hours before the trial ends, the subscription starts and Apple charges you. The app
+            reminds you 2 days before.
+          </li>
+          <li>
+            <strong>Renewal.</strong> The subscription renews automatically at the end of each
+            month or year, and Apple charges your Apple ID, unless you cancel at least 24 hours
+            before the period ends.
+          </li>
+          <li>
+            <strong>Cancelling.</strong> In the app under <strong>Settings → Leads Pro → Manage
+            subscription</strong>, or in your Apple ID’s subscription settings. Pro then stays until
+            the end of the period you paid for.
+          </li>
+          <li>
+            <strong>Refunds</strong> are handled by Apple under its rules, at{' '}
+            <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.
+          </li>
+        </ul>
+        <p>
+          When Pro ends, nothing is deleted or locked. Every lead stays, with its history and
+          follow-ups. While more than {site.freeActiveLeads} leads are active, adding another needs
+          Pro. Deleting your account does not cancel a subscription; cancel it with Apple first.
+        </p>
+        <p>
+          If we change the price, Apple tells you before it applies to your subscription, and
+          where required you have to agree to it first.
+        </p>
+      </>
     ),
   },
   {

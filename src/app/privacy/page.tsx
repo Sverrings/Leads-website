@@ -62,10 +62,10 @@ const SECTIONS: LegalSection[] = [
             Server logs with your IP address, the time of a request and the app version, used to
             keep the service secure and working.
           </li>
-          <li>Delivery information for emails sent through Leads, such as whether they bounced.</li>
         </ul>
         <p>
-          The app contains no advertising and no third-party analytics or tracking SDKs. This
+          Follow-ups you send leave from your own email app; Leads does not send or see them after
+          that. The app contains no advertising and no third-party analytics or tracking SDKs. This
           website sets no cookies and uses no analytics.
         </p>
       </>
@@ -107,11 +107,11 @@ const SECTIONS: LegalSection[] = [
     title: 'The writing assistant',
     body: (
       <p>
-        When you ask Leads to write a draft, the lead’s name, what they asked about, earlier messages
-        and your sender details are sent to our AI provider, Anthropic, which returns the text.
-        Anthropic processes this only to produce the draft and, under its commercial terms, does not
-        use it to train its models. Drafts are never sent to a customer without your approval unless
-        you have switched on automatic sending.
+        The writing assistant is not available yet. When it is, and only when you ask it to write a
+        draft, the lead’s name, what they asked about, earlier messages and your sender details will
+        be sent to our AI provider, Anthropic, which returns the text. Anthropic processes this only
+        to produce the draft and, under its commercial terms, does not use it to train its models.
+        We will update this policy before it is switched on.
       </p>
     ),
   },
@@ -127,10 +127,8 @@ const SECTIONS: LegalSection[] = [
             data is stored in {site.dataRegion}.
           </li>
           <li>
-            <strong>Resend</strong>: delivers the follow-up emails you send.
-          </li>
-          <li>
-            <strong>Anthropic</strong>: writes drafts, only when you use the assistant.
+            <strong>Google (Gmail)</strong>: delivers the emails Leads sends you about your account,
+            such as sign-up and password reset codes.
           </li>
           <li>
             <strong>Apple</strong> and <strong>Google</strong>: only if you choose them to sign in.

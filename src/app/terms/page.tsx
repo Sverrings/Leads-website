@@ -33,9 +33,10 @@ const SECTIONS: LegalSection[] = [
     title: 'What Leads does',
     body: (
       <p>
-        Leads keeps track of people who asked about your work, reminds you when to follow up, drafts
-        follow-up messages and, if you choose, sends them for you. Leads is in early access: features
-        will change as we improve it, and we will tell you about changes that affect how you use it.
+        Leads keeps track of people who asked about your work, reminds you when to follow up and
+        prepares the follow-up messages, which you send from your own email. Leads is in early
+        access: features will change as we improve it, and we will tell you about changes that
+        affect how you use it.
       </p>
     ),
   },
@@ -57,8 +58,7 @@ const SECTIONS: LegalSection[] = [
       <>
         <p>
           Everything you add stays yours. You give us permission to store and process it only to run
-          Leads for you, for example to show it in the app, draft messages and send the emails you
-          ask us to send.
+          Leads for you, for example to show it in the app and prepare messages.
         </p>
         <p>
           You are responsible for having the right to keep your customers’ details and to contact
@@ -79,8 +79,9 @@ const SECTIONS: LegalSection[] = [
           breaks the email and marketing laws that apply to you.
         </p>
         <p>
-          If messages from your workspace cause complaints, bounces or abuse reports, we may pause
-          sending from it while we look into it.
+          Follow-ups are sent from your own email account, so its provider&apos;s rules apply too.
+          If we later send email for you and messages from your workspace cause complaints, bounces
+          or abuse reports, we may pause sending from it while we look into it.
         </p>
       </>
     ),
@@ -90,9 +91,9 @@ const SECTIONS: LegalSection[] = [
     title: 'Drafts from the assistant',
     body: (
       <p>
-        Drafts are suggestions written by software and can be wrong. Read them before you send them.
-        You are responsible for the messages that go out from your account, including those sent
-        automatically after you switch that on.
+        Drafts are suggestions, whether they come from a template or, once it is available, from
+        the writing assistant, and they can be wrong. Read them before you send them. You are
+        responsible for the messages you send.
       </p>
     ),
   },

@@ -23,15 +23,15 @@ export const FAQS: Faq[] = [
     id: 'auto-send',
     question: 'Does it send emails on its own?',
     answer: [
-      'Only if you turn it on. By default every follow-up waits as a draft for you to read, change and send.',
-      'Under Settings → Sending you can let Leads send them on schedule instead. They go out even when your phone is off.',
+      'No. When a follow-up is due, Leads shows it on Today with the message already written. You read it, change what you like, and it opens in your Mail app to send.',
+      'Letting Leads send follow-ups for you on schedule is coming later. It will always be something you switch on yourself.',
     ],
   },
   {
     id: 'from',
     question: 'Which address do the emails come from?',
     answer: [
-      'They are sent by our email service with your name as the sender and your own email address as the reply-to. When a customer answers, the reply lands in your normal inbox.',
+      'From your own. Follow-ups open in the Mail app on your phone, so they are sent from your address and customers reply straight to your normal inbox.',
     ],
   },
   {

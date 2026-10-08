@@ -12,11 +12,7 @@ export function EmailPreview() {
         <dl className={styles.headers}>
           <div>
             <dt>From</dt>
-            <dd>Alex Morgan</dd>
-          </div>
-          <div>
-            <dt>Reply to</dt>
-            <dd>alex@morganrenovation.com</dd>
+            <dd>Alex Morgan &lt;alex@morganrenovation.com&gt;</dd>
           </div>
           <div>
             <dt>To</dt>
@@ -43,7 +39,7 @@ export function EmailPreview() {
         </div>
       </div>
       <figcaption className={styles.caption}>
-        Tuesday 09:14. The first of three follow-ups, sent after Alex tapped Send.
+        Tuesday 09:14. The first of three follow-ups, sent from Alex&apos;s own Mail app.
       </figcaption>
     </figure>
   );

@@ -11,8 +11,8 @@ export const site = {
 
   // TODO: the person or company responsible for the app (the "data controller").
   operator: 'The Leads team',
-  // TODO: an inbox you read. Privacy requests and support questions go here.
-  contactEmail: 'hello@your-domain.com',
+  /** An inbox you read. Privacy requests and support questions go here. */
+  contactEmail: 'leads.colon@gmail.com',
   /** Where the Supabase project keeps data. */
   dataRegion: 'Frankfurt, Germany (EU)',
 
@@ -21,7 +21,7 @@ export const site = {
   supervisoryAuthority: { name: 'Datatilsynet', url: 'https://www.datatilsynet.no' },
 
   /** Shown on the legal pages. Change it whenever you change them. */
-  legalUpdated: '6 October 2026',
+  legalUpdated: '8 October 2026',
 
   /**
    * The app's backend, used by the pages that email links open (confirm email,

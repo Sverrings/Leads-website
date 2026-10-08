@@ -21,8 +21,8 @@ const WEEK = [
     when: 'Tuesday 09:12',
     what: (
       <>
-        Sarah is at the top of your list with a follow-up already written. You change one line and
-        tap Send. It goes out with your name on it.
+        Sarah is at the top of your list with a follow-up already written. You change one line, and
+        it opens in your Mail app, ready to send from your own address.
       </>
     ),
   },
@@ -51,8 +51,8 @@ export default function HomePage() {
           <h1 className="display">Follow up with everyone who asks for a quote.</h1>
           <p className="intro">
             Leads is an iPhone app for small businesses. Add the person who asked, and Leads lines
-            up three follow-ups and writes them for you. You read them and tap Send. When they
-            answer, it stops.
+            up three follow-ups and writes them for you. You read each one and send it from your
+            own email. When they answer, it stops.
           </p>
           <p className={styles.status}>
             Coming to the App Store soon. <Link href="#week">See how it works</Link>
@@ -96,8 +96,8 @@ export default function HomePage() {
           <h2 className="title">What it doesn&apos;t do</h2>
           <p className={styles.body}>
             Leads never connects to your inbox, so it can&apos;t read your email. When someone
-            writes back, you tell it with one tap. Nothing goes out to a customer until you press
-            Send, unless you switch on automatic sending yourself. There are no pipelines, deal
+            writes back, you tell it with one tap. It never emails a customer by itself either:
+            every follow-up goes out from your own email app, when you press send. There are no pipelines, deal
             stages or reports to learn. And the people in your list are yours: we don&apos;t sell
             or share them, and you can delete everything from the app. The{' '}
             <Link href="/privacy">privacy policy</Link> says exactly what is stored.

@@ -12,11 +12,8 @@ export const site = {
   // TODO: the person or company responsible for the app (the "data controller").
   operator: 'The Leads team',
   /** Where Leads posts. Shown in the footer. */
-  /** The Product Hunt page and its "Featured" badge (an image Product Hunt serves). */
-  productHunt: {
-    url: 'https://www.producthunt.com/products/leads-3?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-leads-3',
-    badge: 'https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1279298&theme=dark&t=1791912390826',
-  },
+  /** The Product Hunt page (linked from the footer). */
+  productHunt: 'https://www.producthunt.com/products/leads-3?utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-leads-3',
   social: {
     instagram: 'https://www.instagram.com/leads.team/',
     youtube: 'https://www.youtube.com/@Leads_team',

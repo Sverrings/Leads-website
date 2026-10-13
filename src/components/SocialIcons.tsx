@@ -17,3 +17,13 @@ export function YouTubeIcon({ size = 18 }: { size?: number }) {
     </svg>
   );
 }
+
+/** Product Hunt's mark: a P in a circle, outlined like the others. */
+export function ProductHuntIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9.1" stroke="currentColor" strokeWidth="1.8" />
+      <path d="M9.6 17V7.6h3.3a2.7 2.7 0 0 1 0 5.4H9.6" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+    </svg>
+  );
+}

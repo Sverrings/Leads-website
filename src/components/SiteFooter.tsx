@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { site } from '@/site.config';
 
 import { LogoMark, Wordmark } from './Logo';
-import { InstagramIcon, YouTubeIcon } from './SocialIcons';
+import { InstagramIcon, ProductHuntIcon, YouTubeIcon } from './SocialIcons';
 import styles from './SiteFooter.module.css';
 
 export function SiteFooter() {
@@ -26,15 +26,12 @@ export function SiteFooter() {
               <span>YouTube</span>
             </a>
           </div>
-          <a href={site.productHunt.url} target="_blank" rel="noopener noreferrer" className={styles.badge}>
-            {/* Product Hunt's own badge image, at the size they give it. */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={site.productHunt.badge}
-              alt="Leads - Never lose a lead. Never miss a follow-up. | Product Hunt"
-              width={250}
-              height={54}
-            />
+          <a href={site.productHunt} target="_blank" rel="noopener noreferrer" className={styles.badge}>
+            <ProductHuntIcon size={22} />
+            <span>
+              <small>Featured on</small>
+              Product Hunt
+            </span>
           </a>
         </div>
 

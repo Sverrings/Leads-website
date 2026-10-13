@@ -1,0 +1,45 @@
+.mark {
+  flex: none;
+  box-shadow: 0 0 0 1px var(--border-strong);
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: flex-end;
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  color: var(--text);
+}
+
+/* Proportions measured from the icon: dots about a fifth of the letter
+   height, the top one starting a fifth of the way down. */
+.colon {
+  position: relative;
+  display: inline-block;
+  width: 0.155em;
+  height: 0.71em;
+  margin-left: 0.02em;
+  margin-bottom: 0.07em;
+}
+
+.colon i {
+  position: absolute;
+  left: 0;
+  width: 0.155em;
+  height: 0.155em;
+  border-radius: 0.04em;
+  background: var(--dot);
+  box-shadow:
+    0 0 0.14em rgba(77, 130, 255, 0.55),
+    0 0 0.04em rgba(77, 130, 255, 0.5);
+}
+
+.colon i:first-child {
+  top: 0.185em;
+}
+
+.colon i:last-child {
+  bottom: 0;
+}

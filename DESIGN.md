@@ -1,42 +1,43 @@
 # How this site looks and sounds
 
-Generated sites look alike because nobody decided anything, so the defaults
-win: a dark page, a glowing badge above a huge centred headline, a blue-purple
-glow, three feature cards in a row, every section fading in on scroll, and
-copy like "Calm by design. Not X, but Y." This file lists the decisions that
-replace those defaults. Change them on purpose, not by drift.
+The website and the web app look like the iPhone app: the same dark palette,
+the same type, the same rounded controls, and the app icon's graphite. Generated
+sites look alike because nobody decided anything; these are the decisions.
 
 ## Page
 
-- **Paper, not a void.** A warm off-white page (`#F7F5F0`) with near-black ink.
-  Dark mode follows the visitor's system and is a warm charcoal, never pure black.
-- **One accent, used for meaning.** The app's blue marks links and the colon in
-  the wordmark. No gradients, glows, or coloured shadows anywhere.
-- **Hairlines over boxes.** Sections are separated by a thin rule and space.
-  Cards are only used for things that really are objects (an email, a phone).
+- **Graphite, from the icon.** The page is the app's near-black (`#08090A`).
+  Large first views (the front page's top, sign-in, setup) use the icon's
+  background: graphite at the top fading to black (`--graphite`). Nowhere else.
+- **One accent, used for meaning.** The app's blue marks links, the current
+  period in a chart, and the colon in the wordmark. The colon is drawn like the
+  icon's: two rounded squares with a soft blue glow. That glow appears only
+  there and on the "Got the job" dot.
+- **Hairlines over boxes.** Sections are separated by space and thin rules.
+  Cards are for things that are objects (an email, a phone, a lead, a chart).
 
 ## Type
 
-- Headlines: **Newsreader**, a serif made for reading on screens, at weight 500.
-  It is served from this site (via `next/font`), so visitors never load anything
-  from Google.
-- Everything else: the system font (SF Pro on Apple devices), so the site reads
-  like the iPhone app it describes.
-- Sentence case everywhere. No all-caps labels, no small "eyebrow" badges above
-  headings.
+- The system font: SF Pro on Apple devices, exactly like the app. Other systems
+  get Inter (served from this site by `next/font`), the closest match.
+- Headlines are bold with tight tracking, like the app's large titles.
+- Sentence case everywhere. No all-caps labels, no eyebrow badges.
 
-## Layout
+## The web app
 
-- Left-aligned, built around a reading column of about 640px. Figures (the phone,
-  the email) may be wider. Nothing is centred except the 404 page.
-- Sections differ in shape: a dated log, a real email, a short list. Avoid
-  repeating one "label, headline, grid" pattern down the page.
+- A left sidebar (workspace, New lead, Today / Leads / Activity / Insights,
+  then Notifications and Settings), the page on the right. On a phone the
+  sidebar becomes a drawer.
+- Every page answers one question first, in its title and the line under it.
+- Charts follow the dataviz rules: one series per chart, the current period in
+  the accent and the rest in gray (`#5f636b`, checked for contrast against the
+  surface), hover values, and "Show numbers" with a table for every chart.
 
 ## Motion
 
 - Motion only shows the product: the phone demo loops through replying to a lead.
-- Links and buttons respond to hover and press. Nothing fades in on scroll.
-- `prefers-reduced-motion` stops the demo.
+- Buttons respond to hover and press; dialogs and toasts appear quickly and calmly.
+- `prefers-reduced-motion` stops all of it.
 
 ## Words
 
@@ -44,6 +45,5 @@ replace those defaults. Change them on purpose, not by drift.
   1, 3 and 7" beats "Never miss an opportunity".
 - Say what it does not do. Honest limits build more trust than adjectives.
 - No slogans, no "not X but Y", no lists that always come in threes, no em dashes
-  doing the work of a full stop. If a sentence would fit on any other product's
-  site, rewrite it.
-- Read it aloud. If it sounds like an ad, cut it.
+  doing the work of a full stop. If a sentence would fit any other product's site,
+  rewrite it.

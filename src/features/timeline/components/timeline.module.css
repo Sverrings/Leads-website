@@ -1,0 +1,136 @@
+.groups {
+  display: grid;
+  gap: 8px;
+}
+
+.day {
+  padding: 14px 20px 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-3);
+}
+
+.feed {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 9px 20px;
+  color: var(--text);
+  transition: background 120ms var(--ease);
+}
+
+a.item:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.icon,
+.timelineIcon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+}
+
+.text {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 1px;
+}
+
+.title {
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.detail {
+  font-size: 12.5px;
+  color: var(--text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.time {
+  flex: none;
+  padding-top: 2px;
+  font-size: 12px;
+  color: var(--text-3);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ----- One lead's timeline ------------------------------------------------- */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.timelineItem {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  padding-bottom: 20px;
+}
+
+/* The line from one event down to the next. */
+.timelineItem::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  bottom: 4px;
+  left: 11.5px;
+  width: 1px;
+  background: var(--border-strong);
+}
+
+.timelineItem:last-child::before {
+  display: none;
+}
+
+.timelineBody {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+  padding-top: 2px;
+}
+
+.timelineTime {
+  margin-left: 8px;
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+.timelineBody .detail {
+  white-space: normal;
+}
+
+.quote {
+  margin: 4px 0 0;
+  padding: 8px 12px;
+  border-left: 2px solid var(--border-strong);
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+  background: var(--surface-2);
+  font-size: 13px;
+  color: var(--text-2);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.actor {
+  font-size: 12px;
+  color: var(--text-4);
+}

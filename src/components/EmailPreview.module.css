@@ -1,18 +1,22 @@
+/* A real email looks like a real email: white, whatever the page around it. */
 .figure {
   margin: 0;
 }
 
 .mail {
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  background: var(--field);
+  border-radius: var(--r-lg);
+  background: #ffffff;
+  color: #1d1d1f;
   overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 24px 60px rgba(0, 0, 0, 0.45);
 }
 
 .headers {
   margin: 0;
   padding: 16px 20px;
-  border-bottom: 1px solid var(--rule);
+  border-bottom: 1px solid #e8e8ea;
   display: grid;
   gap: 4px;
   font-size: 14px;
@@ -25,7 +29,7 @@
 }
 
 .headers dt {
-  color: var(--ink-3);
+  color: #8c8d92;
 }
 
 .headers dd {
@@ -41,12 +45,12 @@
   display: grid;
   gap: 14px;
   padding: 20px 20px 24px;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
 .caption {
-  margin-top: 12px;
+  margin-top: 14px;
   font-size: 14px;
-  color: var(--ink-3);
+  color: var(--text-3);
 }

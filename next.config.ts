@@ -6,8 +6,9 @@ const dev = process.env.NODE_ENV !== 'production';
 
 /**
  * The site loads nothing from other domains. The only outside connections are
- * the ones the email-link pages make: Supabase (confirm, reset) and Have I
- * Been Pwned (the breached-password check).
+ * Supabase (sign-in, the web app's data and its functions) and Have I Been
+ * Pwned (the breached-password check). Google sign-in is a page navigation,
+ * which connect-src does not cover.
  */
 const contentSecurityPolicy = [
   "default-src 'self'",
@@ -16,7 +17,7 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",
-  `connect-src 'self' ${site.supabase.url} https://api.pwnedpasswords.com`,
+  `connect-src 'self' ${site.supabase.url} https://api.pwnedpasswords.com${dev ? ' ws://localhost:* ws://127.0.0.1:*' : ''}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",
@@ -39,6 +40,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  devIndicators: false,
   async headers() {
     return [
       { source: '/:path*', headers: securityHeaders },

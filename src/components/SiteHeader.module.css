@@ -1,33 +1,70 @@
 .header {
-  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(8, 9, 10, 0.72);
+  backdrop-filter: saturate(160%) blur(16px);
+  -webkit-backdrop-filter: saturate(160%) blur(16px);
 }
 
 .inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  min-height: 68px;
-  gap: 24px;
+  min-height: 64px;
+  gap: 32px;
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  text-decoration: none;
+  color: var(--text);
 }
 
 .nav {
   display: flex;
-  gap: 24px;
+  gap: 26px;
+  margin-right: auto;
 }
 
 .link {
-  color: var(--ink-2);
-  font-size: 15px;
-  text-decoration: none;
+  color: var(--text-2);
+  font-size: 14px;
 }
 
 .link:hover {
-  color: var(--ink);
+  color: var(--text);
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.login {
+  color: var(--text-2);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.login:hover {
+  color: var(--text);
+}
+
+.cta {
+  min-height: 36px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+@media (max-width: 760px) {
+  .nav {
+    display: none;
+  }
+
+  .account {
+    margin-left: auto;
+  }
 }

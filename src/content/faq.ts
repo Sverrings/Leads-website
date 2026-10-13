@@ -88,7 +88,10 @@ export const FAQS: Faq[] = [
   },
   {
     id: 'devices',
-    question: 'Which phones does it work on?',
-    answer: ['iPhone, first. An Android version may follow.'],
+    question: 'Can I use Leads on my computer?',
+    answer: [
+      'Yes. Log in at this website with the same account and you get the same leads, follow-ups and settings, plus charts of how your follow-ups are going. A change on one shows up on the other.',
+      'The iPhone app is coming to the App Store soon. An Android version may follow.',
+    ],
   },
 ];

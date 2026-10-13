@@ -1,0 +1,409 @@
+/* ----- Frame ---------------------------------------------------------------- */
+
+.frame {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 248px minmax(0, 1fr);
+  /* The sidebar colour runs the full height, however long the page. */
+  background: linear-gradient(90deg, var(--bg-raised) 0 247px, var(--border) 247px 248px, var(--bg) 248px);
+}
+
+.center {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: var(--graphite);
+}
+
+.boot {
+  animation: breathe 1.6s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.main {
+  min-width: 0;
+  padding: 28px clamp(20px, 3.4vw, 44px) 64px;
+}
+
+/* ----- Sidebar ---------------------------------------------------------------- */
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 12px;
+  border-right: 1px solid var(--border);
+  background: var(--bg-raised);
+}
+
+.workspace {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: var(--r-md);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.workspace:hover {
+  background: var(--surface-2);
+}
+
+.workspaceName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.workspaceChevron {
+  color: var(--text-3);
+}
+
+.newLead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 36px;
+  margin: 12px 4px 14px;
+  border-radius: 999px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 140ms var(--ease);
+}
+
+.newLead:hover {
+  background: #cfd0d2;
+  color: var(--bg);
+}
+
+.nav {
+  display: grid;
+  gap: 2px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--text-2);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background 120ms var(--ease),
+    color 120ms var(--ease);
+}
+
+.navItem svg {
+  color: var(--text-3);
+}
+
+.navItem:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.navActive,
+.navActive:hover {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.navActive svg {
+  color: var(--text);
+}
+
+.count,
+.countAccent {
+  margin-left: auto;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.count {
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.countAccent {
+  background: var(--accent);
+  color: #fff;
+}
+
+.sidebarBottom {
+  margin-top: auto;
+  display: grid;
+  gap: 2px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 6px;
+  padding: 8px;
+  border: 0;
+  border-radius: var(--r-md);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.account:hover {
+  background: var(--surface-2);
+}
+
+.accountText {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+}
+
+.accountName,
+.accountEmail {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accountName {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.accountEmail {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+/* ----- Mobile ------------------------------------------------------------------ */
+
+.mobileBar {
+  display: none;
+}
+
+.scrim {
+  display: none;
+}
+
+.iconButton {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+}
+
+.mobileBrand {
+  display: inline-flex;
+}
+
+@media (max-width: 900px) {
+  .frame {
+    grid-template-columns: minmax(0, 1fr);
+    background: var(--bg);
+  }
+
+  .mobileBar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(8, 9, 10, 0.85);
+    backdrop-filter: blur(14px);
+  }
+
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 50;
+    width: 272px;
+    transform: translateX(-100%);
+    transition: transform 200ms var(--ease);
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+  }
+
+  .scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    border: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .main {
+    padding: 20px 16px 56px;
+  }
+}
+
+/* ----- Notifications drawer ----------------------------------------------- */
+
+.drawerScrim {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  border: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 61;
+  width: min(420px, 100vw);
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border-strong);
+  background: var(--surface);
+  box-shadow: -30px 0 80px rgba(0, 0, 0, 0.5);
+  animation: slideIn 200ms var(--ease);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(24px);
+    opacity: 0;
+  }
+}
+
+.drawerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 12px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.drawerHead h2 {
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.drawerBody {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.notificationList {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+}
+
+.notification {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  padding: 12px 20px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+div.notification {
+  cursor: default;
+}
+
+button.notification:hover {
+  background: var(--surface-2);
+}
+
+.notificationIcon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+}
+
+.notificationText {
+  flex: 1;
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+
+.notificationTitle,
+.notificationTitleUnread {
+  font-size: 14px;
+}
+
+.notificationTitleUnread {
+  font-weight: 600;
+}
+
+.notificationBody {
+  font-size: 13px;
+  color: var(--text-3);
+}
+
+.notificationMeta {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.unreadDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 4px;
+  background: var(--accent);
+}

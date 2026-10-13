@@ -1,0 +1,191 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.refetching {
+  opacity: 0.55;
+  transition: opacity 160ms var(--ease);
+}
+
+/* ----- Column chart --------------------------------------------------------- */
+
+.chart {
+  position: relative;
+}
+
+.svg {
+  display: block;
+  overflow: visible;
+}
+
+.axis {
+  fill: var(--text-3);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.capLabel {
+  fill: var(--text);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.hit {
+  cursor: default;
+  outline: none;
+}
+
+.hit:focus-visible {
+  outline: 2px solid var(--accent);
+}
+
+.tooltip {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  display: grid;
+  gap: 2px;
+  padding: 8px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-sm);
+  background: #1a1b1e;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.tooltipValue {
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.tooltipLabel {
+  font-size: 12px;
+  color: var(--text-3);
+}
+
+/* ----- Bar list ------------------------------------------------------------- */
+
+.barList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.barRow {
+  display: grid;
+  grid-template-columns: minmax(96px, 0.9fr) minmax(0, 2fr) 64px;
+  align-items: center;
+  gap: 12px;
+  font-size: 13.5px;
+}
+
+.barLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--text-2);
+}
+
+.barTrack {
+  height: 10px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.barFill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: #5b8def;
+}
+
+.barValue {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.barShare {
+  min-width: 32px;
+  text-align: right;
+  font-weight: 400;
+  color: var(--text-3);
+}
+
+/* ----- Numbers table ---------------------------------------------------------- */
+
+.numbers {
+  margin-top: 10px;
+  font-size: 12.5px;
+}
+
+.numbers summary {
+  width: fit-content;
+  color: var(--text-3);
+  cursor: pointer;
+}
+
+.numbers summary:hover {
+  color: var(--text);
+}
+
+.numbers table {
+  width: 100%;
+  margin-top: 8px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.numbers th,
+.numbers td {
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.numbers th {
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.numbers td:last-child,
+.numbers th:last-child {
+  text-align: right;
+}
+
+@media (max-width: 1100px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

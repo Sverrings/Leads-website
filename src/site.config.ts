@@ -11,6 +11,11 @@ export const site = {
 
   // TODO: the person or company responsible for the app (the "data controller").
   operator: 'The Leads team',
+  /** Where Leads posts. Shown in the footer. */
+  social: {
+    instagram: 'https://www.instagram.com/leads.team/',
+    youtube: 'https://www.youtube.com/@Leads_team',
+  },
   /** An inbox you read. Privacy requests and support questions go here. */
   contactEmail: 'leads.colon@gmail.com',
   /** Where the Supabase project keeps data. */
@@ -21,7 +26,7 @@ export const site = {
   supervisoryAuthority: { name: 'Datatilsynet', url: 'https://www.datatilsynet.no' },
 
   /** Shown on the legal pages. Change it whenever you change them. */
-  legalUpdated: '9 October 2026',
+  legalUpdated: '13 October 2026',
 
   /**
    * Leads Pro, as set up in App Store Connect and the app's database

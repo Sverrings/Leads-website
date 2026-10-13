@@ -1,19 +1,13 @@
 import type { Metadata, Viewport } from 'next';
-import { Newsreader } from 'next/font/google';
+import { Inter } from 'next/font/google';
 
-import { SiteFooter } from '@/components/SiteFooter';
-import { SiteHeader } from '@/components/SiteHeader';
 import { site } from '@/site.config';
 
 import './globals.css';
 
-// Downloaded at build time and served from this site: no requests to Google.
-const serif = Newsreader({
-  subsets: ['latin'],
-  axes: ['opsz'],
-  display: 'swap',
-  variable: '--serif',
-});
+// Apple devices use SF Pro, like the app. Everyone else gets Inter, which is
+// close to it. Downloaded at build time and served from this site.
+const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--inter' });
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
@@ -33,21 +27,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f7f5f0' },
-    { media: '(prefers-color-scheme: dark)', color: '#161614' },
-  ],
-  colorScheme: 'light dark',
+  themeColor: '#08090a',
+  colorScheme: 'dark',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={serif.variable}>
-      <body>
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
-      </body>
+    <html lang="en" className={inter.variable}>
+      <body>{children}</body>
     </html>
   );
 }

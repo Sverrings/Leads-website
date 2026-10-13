@@ -1,35 +1,85 @@
 .footer {
-  margin-top: 96px;
-  border-top: 1px solid var(--rule);
+  margin-top: 120px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-raised);
 }
 
 .inner {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: space-between;
-  gap: 16px 32px;
-  padding-top: 28px;
+  gap: 40px 56px;
+  padding-top: 48px;
   padding-bottom: 40px;
+}
+
+.brand {
+  display: grid;
+  gap: 16px;
+  max-width: 320px;
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
 }
 
 .made {
   font-size: 14px;
-  color: var(--ink-3);
+  color: var(--text-3);
 }
 
-.links {
+.social {
+  display: flex;
+  gap: 18px;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+.social a:hover {
+  color: var(--text);
+}
+
+.columns {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 32px 64px;
+}
+
+.columns div {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+
+.columns h2 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.columns a {
   font-size: 14px;
+  color: var(--text-2);
 }
 
-.links a {
-  color: var(--ink-2);
-  text-decoration: none;
+.columns a:hover {
+  color: var(--text);
 }
 
-.links a:hover {
-  color: var(--ink);
+.base {
+  padding-top: 20px;
+  padding-bottom: 32px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-3);
 }

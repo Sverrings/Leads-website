@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import { needsSetup, site } from '@/site.config';
 
-import styles from '../app/legal.module.css';
+import styles from './legal.module.css';
 
 export type LegalSection = { id: string; title: string; body: ReactNode };
 

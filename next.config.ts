@@ -5,17 +5,18 @@ import { site } from './src/site.config';
 const dev = process.env.NODE_ENV !== 'production';
 
 /**
- * The site loads nothing from other domains. The only outside connections are
- * Supabase (sign-in, the web app's data and its functions) and Have I Been
- * Pwned (the breached-password check). Google sign-in is a page navigation,
- * which connect-src does not cover.
+ * The site loads nothing from other domains except Product Hunt's badge image in
+ * the footer. The only outside connections are Supabase (sign-in, the web app's
+ * data and its functions) and Have I Been Pwned (the breached-password check).
+ * Google sign-in is a page navigation, which connect-src does not cover.
  */
 const contentSecurityPolicy = [
   "default-src 'self'",
   // Next.js inlines small scripts; development also needs eval for fast refresh.
   `script-src 'self' 'unsafe-inline'${dev ? " 'unsafe-eval'" : ''}`,
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  // Product Hunt's badge in the footer is an image they serve.
+  "img-src 'self' data: blob: https://api.producthunt.com",
   "font-src 'self'",
   `connect-src 'self' ${site.supabase.url} https://api.pwnedpasswords.com${dev ? ' ws://localhost:* ws://127.0.0.1:*' : ''}`,
   "object-src 'none'",

@@ -83,3 +83,13 @@
   font-size: 13px;
   color: var(--text-3);
 }
+
+.badge {
+  display: inline-block;
+  width: fit-content;
+  line-height: 0;
+}
+
+.badge img {
+  display: block;
+}

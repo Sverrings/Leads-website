@@ -26,6 +26,16 @@ export function SiteFooter() {
               <span>YouTube</span>
             </a>
           </div>
+          <a href={site.productHunt.url} target="_blank" rel="noopener noreferrer" className={styles.badge}>
+            {/* Product Hunt's own badge image, at the size they give it. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={site.productHunt.badge}
+              alt="Leads - Never lose a lead. Never miss a follow-up. | Product Hunt"
+              width={250}
+              height={54}
+            />
+          </a>
         </div>
 
         <nav className={styles.columns} aria-label="Footer">

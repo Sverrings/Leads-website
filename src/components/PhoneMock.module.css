@@ -17,25 +17,56 @@
   color: var(--text);
   position: relative;
   z-index: 1;
-  width: 320px;
-  max-width: 86vw;
-  aspect-ratio: 320 / 660;
-  padding: 10px;
-  border-radius: 52px;
-  background: linear-gradient(160deg, #2a2c30, #121315 40%, #0b0c0d);
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.12),
-    0 16px 40px rgba(0, 0, 0, 0.16),
-    0 2px 4px rgba(0, 0, 0, 0.12);
+  /* The rendered picture, 372 × 724. The phone fills 320 × 666 of it; the
+     transparent edge around it hangs into the margins. */
+  width: 372px;
+  height: 724px;
+  margin: -29px -26px;
 }
 
-.screen {
-  position: relative;
+.device {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  border-radius: 43px;
+  filter: drop-shadow(0 22px 34px rgba(0, 0, 0, 0.5)) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Laid out flat at the display's size, then mapped onto the display by the
+   matrix3d from phones.json. */
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 647px;
+  transform-origin: 0 0;
+  border-radius: 46px;
   background: #08090a;
   overflow: hidden;
   font-size: 12px;
+}
+
+/* The cover glass: a faint reflection of a studio light across the display. */
+.glass {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background: linear-gradient(
+    118deg,
+    rgba(255, 255, 255, 0) 34%,
+    rgba(220, 228, 245, 0.025) 44%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(220, 228, 245, 0.025) 56%,
+    rgba(255, 255, 255, 0) 66%
+  );
+}
+
+@media (max-width: 370px) {
+  .phone {
+    zoom: 0.86;
+  }
 }
 
 /* ----- Status bar ---------------------------------------------------------- */

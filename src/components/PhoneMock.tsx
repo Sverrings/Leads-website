@@ -1,4 +1,18 @@
+import Image from 'next/image';
+
+import hero from '@/assets/phones/hero.png';
+import frames from '@/assets/phones/phones.json';
+
 import styles from './PhoneMock.module.css';
+
+/**
+ * The phones are rendered in 3D with Remotion (Leads-Advertising/my-video,
+ * npm run render:site-phones -- --to <this repo>/src/assets/phones). Each faces
+ * the viewer at its own slight angle; phones.json holds the transform that lays
+ * the screen below onto that phone's display.
+ */
+const PHONES = { hero } as const;
+export type PhonePreview = keyof typeof PHONES;
 
 const ROWS = [
   {
@@ -40,14 +54,22 @@ const ROWS = [
 ];
 
 /**
- * The app's Today screen, drawn in HTML. It plays the core loop on repeat:
- * tap Reply, the message goes out, the lead leaves the list.
+ * The app's Today screen, drawn in HTML on a 3D phone. It plays the core loop
+ * on repeat: tap Reply, the message goes out, the lead leaves the list.
  */
-export function PhoneMock() {
+export function PhoneMock({ preview = 'hero' }: { preview?: PhonePreview }) {
   return (
     <div className={styles.stage} aria-hidden="true">
       <div className={styles.phone}>
-        <div className={styles.screen}>
+        <Image
+          src={PHONES[preview]}
+          alt=""
+          className={styles.device}
+          sizes={`${frames.frame.width}px`}
+          loading="eager"
+          fetchPriority="high"
+        />
+        <div className={styles.screen} style={{ transform: frames.phones[preview].matrix }}>
           <div className={styles.status}>
             <span>9:41</span>
             <span className={styles.island} />
@@ -140,6 +162,8 @@ export function PhoneMock() {
               </svg>
             </span>
           </div>
+
+          <span className={styles.glass} />
         </div>
       </div>
     </div>

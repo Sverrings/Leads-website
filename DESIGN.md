@@ -15,6 +15,9 @@ sites look alike because nobody decided anything; these are the decisions.
   there and on the "Got the job" dot.
 - **Hairlines over boxes.** Sections are separated by space and thin rules.
   Cards are for things that are objects (an email, a phone, a lead, a chart).
+- **Real phones.** Phones are 3D renders made in Remotion (Leads-Advertising,
+  `src/SitePhone`) with the live screen laid onto the display. Each faces the
+  viewer turned a degree or two, and no two phones on the site the same way.
 
 ## Type
 

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { site } from '@/site.config';
 
 import { LogoMark, Wordmark } from './Logo';
-import { InstagramIcon, ProductHuntIcon, YouTubeIcon } from './SocialIcons';
+import { InstagramIcon, ProductHuntIcon, TikTokIcon, YouTubeIcon } from './SocialIcons';
 import styles from './SiteFooter.module.css';
 
 export function SiteFooter() {
@@ -24,6 +24,10 @@ export function SiteFooter() {
             <a href={site.social.youtube} target="_blank" rel="noopener noreferrer">
               <YouTubeIcon />
               <span>YouTube</span>
+            </a>
+            <a href={site.social.tiktok} target="_blank" rel="noopener noreferrer">
+              <TikTokIcon />
+              <span>TikTok</span>
             </a>
           </div>
           <a href={site.productHunt} target="_blank" rel="noopener noreferrer" className={styles.badge}>

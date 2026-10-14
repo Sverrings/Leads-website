@@ -17,6 +17,7 @@ export const site = {
   social: {
     instagram: 'https://www.instagram.com/leads.team/',
     youtube: 'https://www.youtube.com/@Leads_team',
+    tiktok: 'https://www.tiktok.com/@leads.team',
   },
   /** An inbox you read. Privacy requests and support questions go here. */
   contactEmail: 'leads.colon@gmail.com',

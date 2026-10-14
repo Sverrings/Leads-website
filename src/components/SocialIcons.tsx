@@ -18,6 +18,18 @@ export function YouTubeIcon({ size = 18 }: { size?: number }) {
   );
 }
 
+/** TikTok's note: a stem with a round foot and the flag curling off its top. */
+export function TikTokIcon({ size = 18 }: { size?: number }) {
+  return (
+    // Drawn a little closer than the others (21-unit view box, thinner line) so the
+    // open shape carries the same weight as the boxed Instagram and YouTube marks.
+    <svg width={size} height={size} viewBox="1.5 1.5 21 21" fill="none" aria-hidden="true">
+      <path d="M14.4 3.5v10.9a3.85 3.85 0 1 1-3.85-3.85" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M14.4 3.5c.5 2.6 2.4 4.35 5.1 4.55" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 /** Product Hunt's mark: a P in a circle, outlined like the others. */
 export function ProductHuntIcon({ size = 18 }: { size?: number }) {
   return (

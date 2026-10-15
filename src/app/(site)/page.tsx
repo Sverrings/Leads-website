@@ -150,19 +150,38 @@ export default function HomePage() {
             {site.trialDays} days free to try it. You subscribe in the iPhone app; the web app follows
             your plan.
           </p>
+          <p className={styles.body}>
+            {site.assistantLive ? '' : 'Coming soon: '}“Write for me” drafts a personal follow-up with
+            AI. The free plan includes {site.freeAiDrafts} AI drafts a month and Leads Pro{' '}
+            {site.proAiDrafts.toLocaleString('en-US')}, shared by the team. Templates are unlimited on
+            both, so a follow-up is always ready even when the month’s AI drafts are used.
+          </p>
         </div>
         <div className={styles.plans}>
           <div className={styles.plan}>
             <p className={styles.planName}>Free</p>
             <p className={styles.planPrice}>0 kr</p>
-            <p className={styles.planNote}>{site.freeActiveLeads} active leads, everything else included</p>
+            <ul className={styles.planList}>
+              <li>{site.freeActiveLeads} active leads</li>
+              <li>
+                {site.freeAiDrafts} AI drafts a month{site.assistantLive ? '' : ' (soon)'}
+              </li>
+              <li>Unlimited templates and follow-ups</li>
+            </ul>
           </div>
           <div className={`${styles.plan} ${styles.planPro}`}>
             <p className={styles.planName}>Leads Pro</p>
             <p className={styles.planPrice}>
               99 kr <span>a month</span>
             </p>
-            <p className={styles.planNote}>or 990 kr a year · no limit · for the whole team</p>
+            <ul className={styles.planList}>
+              <li>No limit on active leads</li>
+              <li>
+                {site.proAiDrafts.toLocaleString('en-US')} AI drafts a month
+                {site.assistantLive ? '' : ' (soon)'}
+              </li>
+              <li>For the whole team · or 990 kr a year</li>
+            </ul>
           </div>
         </div>
       </section>

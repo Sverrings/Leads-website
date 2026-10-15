@@ -55,6 +55,7 @@ export const FAQS: Faq[] = [
     answer: [
       'Each workspace can have 3 active leads at a time for free. Leads marked Won or Lost do not count.',
       'Leads Pro removes the limit for everyone in the workspace: 99 kr a month or 990 kr a year in Norway, shown in your own currency in the app. New subscribers get 14 days free through Apple, and the app reminds you 2 days before the trial ends. Cancel any time under Settings → Leads Pro.',
+      'Coming soon, “Write for me” drafts a personal follow-up with AI. The free plan will include 10 AI drafts a month and Leads Pro 1,000, shared by the whole workspace. They start over on the 1st of each month and unused ones do not carry over. Templates are unlimited on both plans, so you can always follow up when the month’s AI drafts are used.',
       'If Pro ends, nothing is deleted. Every lead stays; you just cannot add more than 3 active ones until some are marked Won or Lost.',
     ],
   },

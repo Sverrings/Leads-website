@@ -29,13 +29,18 @@ export const site = {
   supervisoryAuthority: { name: 'Datatilsynet', url: 'https://www.datatilsynet.no' },
 
   /** Shown on the legal pages. Change it whenever you change them. */
-  legalUpdated: '13 October 2026',
+  legalUpdated: '14 October 2026',
 
   /**
    * Leads Pro, as set up in App Store Connect and the app's database
    * (private.app_settings). Keep these in sync when either changes.
    */
   freeActiveLeads: 3,
+  /** "Write for me" drafts per workspace per month (free_ai_drafts / pro_ai_drafts). */
+  freeAiDrafts: 10,
+  proAiDrafts: 1000,
+  /** Turn on when the writing assistant is live in the app (EXPO_PUBLIC_ASSISTANT). */
+  assistantLive: false,
   trialDays: 14,
   proPrices: '99 kr a month or 990 kr a year in Norway, or $9.99 a month or $99.99 a year in the United States',
 

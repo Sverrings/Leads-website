@@ -201,9 +201,30 @@
   color: var(--text-2);
 }
 
-.planNote {
+.planList {
+  display: grid;
+  gap: 6px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
   font-size: 14px;
-  color: var(--text-3);
+  color: var(--text-2);
+}
+
+.planList li {
+  padding-left: 16px;
+  position: relative;
+}
+
+.planList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--text-3);
 }
 
 .faq {

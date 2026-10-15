@@ -126,6 +126,15 @@ const SECTIONS: LegalSection[] = [
           subscription you buy in the app through Apple, monthly or yearly. The price is shown in
           your currency before you confirm, for example {site.proPrices}.
         </p>
+        <p>
+          <strong>AI drafts.</strong> {site.assistantLive ? '' : 'Once the writing assistant is available, '}
+          each workspace gets {site.freeAiDrafts} AI-written drafts a month on the free plan and{' '}
+          {site.proAiDrafts.toLocaleString('en-US')} with Leads Pro, shared by everyone in it. The
+          month follows the workspace’s time zone, a draft counts when it is written, and unused
+          drafts do not carry over. Templates are never limited. To keep the service fair and free
+          of spam, Leads may also limit how many emails its own server sends for a workspace each
+          day.
+        </p>
         <ul>
           <li>
             <strong>Free trial.</strong> New subscribers can get a {site.trialDays}-day free trial,
